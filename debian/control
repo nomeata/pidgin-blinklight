@@ -1,0 +1,28 @@
+Source: pidgin-blinklight
+Section: net
+Priority: optional
+Maintainer: Joachim Breitner <nomeata@debian.org>
+Build-Depends: debhelper (>= 4.0.0), pidgin-dev, pkg-config
+Standards-Version: 3.7.2
+
+Package: pidgin-blinklight
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Blinks your ThinkPad's ThinkLight upon new messgaes
+ This plugin for Pidgin will blink your laptops when you get
+ new messages, so you notice them even if the conversation window ist not up
+ front and you don't have or don't see the window list.
+ .
+ To use this with an Thinkpad's ThinkLight, you need to have the ibm-acpi
+ kernel module loaded.
+ .
+ To use this with an ASUS laptop, you need to have the asus_acpi kernel
+ module loaded.
+
+Package: gaim-thinklight
+Architecture: all
+Depends: pidgin-blinklight
+Description: Transitional package to pidgin-thinklight
+ This is a transitional dummy package, to make sure that users have a
+ seamless upgrade from the gaim-thinklight to the new pidgin-blinklight
+ package. It can safely be removed afterwards.

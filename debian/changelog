@@ -1,3 +1,10 @@
+pidgin-blinklight (0.9-1) unstable; urgency=low
+
+  * New upstream Version (clean up source package)
+  * Darcsify package (see http://darcs.nomeata.de/)
+
+ -- Joachim Breitner <nomeata@debian.org>  Thu, 21 Jun 2007 16:35:31 +0100
+
 pidgin-blinklight (0.8-2) unstable; urgency=low
 
   * Add transitional gaim-thinklight package, that depends on pidgin-

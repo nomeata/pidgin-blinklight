@@ -1,3 +1,9 @@
+Version 0.9
+
+Clean up package a bit, use Pidgin-Blinklight consistently
+
+-- Joachim Breitner <nomeata@debian.org> Thu, 21 Jun 2007 17:12:19 +0100
+
 Version 0.8
 
 Gaim is gone, Pidgin’s now the bird of the day. Also rename the plugin to

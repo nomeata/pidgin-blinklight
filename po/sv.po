@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pidgin-blinklight 0.3-1\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-13 14:34+0100\n"
+"Report-Msgid-Bugs-To: mail@joachim-breitner.de\n"
+"POT-Creation-Date: 2007-06-21 17:12+0100\n"
 "PO-Revision-Date: 2006-01-09 05:34+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -15,21 +15,23 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/pidgin-blinklight.c:134
+#: src/pidgin-blinklight.c:157
 msgid "Blink even when conversation has the _focus."
 msgstr "Blinka till och med när conversationen har _fukusen."
 
-#: src/pidgin-blinklight.c:232
-msgid "Pidgin-Blinklight"
+#: src/pidgin-blinklight.c:248
+#, fuzzy
+msgid "Pidgin-Thinklight"
 msgstr "Pidgin-Blinklight"
 
-#: src/pidgin-blinklight.c:233
+#: src/pidgin-blinklight.c:249
 msgid "Flickering Messages"
 msgstr "Fladdrande meddelanden"
 
-#: src/pidgin-blinklight.c:234
+#: src/pidgin-blinklight.c:250
+#, fuzzy
 msgid ""
-"Pidgin-Blinklight:\n"
+"Pidgin-Thinklight:\n"
 "Flashes the ThinkLight upon new messages\n"
 "To use this, you need to have the ibm-acpi kernel module loaded."
 msgstr ""

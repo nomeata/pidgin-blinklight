@@ -173,7 +173,7 @@ gt_load(PurplePlugin *plugin) {
 
 	// Make /proc file writable
 	if (!fork())
-		execl("/usr/lib/pidgin-blinklight/blinklight-fixperm","thinklight-fixperm",NULL);
+		execl("/usr/lib/pidgin-blinklight/blinklight-fixperm","blinklight-fixperm",NULL);
 	
 	// figure out which interface to use
 	for (i=0; i< INTERFACES; i++) {
@@ -215,7 +215,7 @@ static PurplePluginInfo gt_info = {
 	0,											/* flags		*/
 	NULL,											/* dependencies		*/
 	PURPLE_PRIORITY_DEFAULT,									/* priority		*/
-	"gtk-nomeata-thinklight",								/* id			*/
+	"gtk-nomeata-blinklight",								/* id			*/
 	NULL,											/* name			*/
 	VERSION,										/* version		*/
 	NULL,											/* summary		*/
@@ -245,13 +245,13 @@ init_plugin(PurplePlugin *plugin) {
 	bind_textdomain_codeset(PACKAGE, "UTF-8");
 #endif
 
-	gt_info.name		= _("Purple-Thinklight");
+	gt_info.name		= _("Pidgin-Thinklight");
 	gt_info.summary		= _("Flickering Messages");
-	gt_info.description	= _(	"Purple-Thinklight:\n"
+	gt_info.description	= _(	"Pidgin-Thinklight:\n"
 					"Flashes the ThinkLight upon new messages\n"
 					"To use this, you need to have the ibm-acpi kernel module loaded.");
 
 	// purple_debug_info("pidgin-blinklight","pidgin-blinklight has init'ed");
 }
 
-PURPLE_INIT_PLUGIN(Purple-Thinklight, init_plugin, gt_info)
+PURPLE_INIT_PLUGIN(Pidgin-Thinklight, init_plugin, gt_info)

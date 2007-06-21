@@ -1,0 +1,12 @@
+pidgin-blinklight:
+  Lets Blink!
+
+About
+=====
+This plugin for Pidgin (or purple)  will blink the ThinkLight(TM) of your shiny
+new ThinkPad notebook when you get new messages. You will need the
+ibm-acpi module to be installed.
+
+INSTALL
+=======
+See the INSTALL file

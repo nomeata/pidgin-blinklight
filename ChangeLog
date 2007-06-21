@@ -1,0 +1,52 @@
+Version 0.8
+
+Gaim is gone, Pidgin’s now the bird of the day. Also rename the plugin to
+pidgin-blinklight.
+
+-- Joachim Breitner <nomeata@debian.org> Fri, 11 May 2007 15:32:15 +0200
+
+Version 0.7
+
+Configurability, based upon a patch from Alex Pounds <alex@alexpounds.com>, Thanks!
+Works now also with ASUS mleds, I hope.
+Reworked automake stuff. I still have no real clue, though.
+
+-- Joachim Breitner <nomeata@debian.org> Tue, 13 Mar 2007 09:35:09 +0100 
+
+Version 0.6
+
+Compability to beta4: ui_requirement NULL instead of ""
+(Might work with older versions as well, if not, tell me)
+
+-- Joachim Breitner <nomeata@debian.org> Thu, 19 Oct 2006 18:52:25 +0000
+
+Version 0.5
+
+Removing possible segfault reason in thinklight-fixperm
+
+-- Joachim Breitner <nomeata@debian.org> Wed, 16 Aug 2006 12:12:38 +0000
+
+Version 0.4
+
+Incuded swedish translation, kudos to Daniel Nylander <po@danielnylander.se>
+
+-- Joachim Breitner <nomeata@debian.org> Sun, 08 Jan 2006 18:51:55 +0100
+
+Version 0.3
+
+Change /proc file permissoins instead of running wrapper on every blink
+
+-- Joachim Breitner <nomeata@debian.org> Thu, 17 Nov 2005 11:04:13 +0100
+
+Version 0.2
+
+Make pidgin-blinklight preserve the previous state of the light
+(suggestion by Stefan Ott <stefan@desire.ch>)
+
+-- Joachim Breitner <nomeata@debian.org> Mon, 19 Sep 2005 11:28:49 +0200
+
+Version 0.1
+
+First release
+
+-- Joachim Breitner <nomeata@debian.org> Mon, 27 Jun 2005 08:35:54 +0200 

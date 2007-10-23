@@ -1,3 +1,9 @@
+pidgin-blinklight (0.9-2) UNRELEASED; urgency=low
+
+  * Add Vcs-Darcs and Vcs-Browser headers
+
+ -- Joachim Breitner <nomeata@debian.org>  Wed, 24 Oct 2007 00:46:49 +0200
+
 pidgin-blinklight (0.9-1) unstable; urgency=low
 
   * New upstream Version (clean up source package)

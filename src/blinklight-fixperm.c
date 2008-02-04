@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
 	for (i=0; i<PROCFILES; i++) {
 
 		if (stat(procfiles[i], &info) != 0) {
-			error (0,errno,"Could not stat procfile %s",procfiles[i]);
+			// error (0,errno,"Could not stat procfile %s",procfiles[i]);
 			continue;
 		}
 		

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: mail@joachim-breitner.de\n"
-"POT-Creation-Date: 2007-06-21 17:12+0100\n"
+"POT-Creation-Date: 2008-02-04 17:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,21 +16,22 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/pidgin-blinklight.c:157
+#: src/pidgin-blinklight.c:160
 msgid "Blink even when conversation has the _focus."
 msgstr ""
 
-#: src/pidgin-blinklight.c:248
-msgid "Pidgin-Thinklight"
+#: src/pidgin-blinklight.c:251
+msgid "Pidgin-Blinklight"
 msgstr ""
 
-#: src/pidgin-blinklight.c:249
+#: src/pidgin-blinklight.c:252
 msgid "Flickering Messages"
 msgstr ""
 
-#: src/pidgin-blinklight.c:250
+#: src/pidgin-blinklight.c:253
 msgid ""
-"Pidgin-Thinklight:\n"
-"Flashes the ThinkLight upon new messages\n"
-"To use this, you need to have the ibm-acpi kernel module loaded."
+"Pidgin-Blinklight:\n"
+"Flashes the Blinklight upon new messages\n"
+"To use this, you need to have the ibm-acpi or asus-laptop kernel module "
+"loaded."
 msgstr ""

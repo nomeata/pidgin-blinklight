@@ -1,3 +1,10 @@
+Version 0.10
+
+Also support the /sys/class/leds/asus:phone/brightness file, patch by 
+Kip, thanks.
+
+-- Joachim Breitner <nomeata@debian.org> Thu, 21 Jun 2007 17:12:19 +0100
+
 Version 0.9
 
 Clean up package a bit, use Pidgin-Blinklight consistently

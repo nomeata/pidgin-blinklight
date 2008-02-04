@@ -53,15 +53,16 @@
 #define TOGGLE 2
 
 struct interface {
-	char *procfile;
+	char *sysfs;
 	char *commands[2];
 	char *scanline;
 };
 
-#define INTERFACES 2
+#define INTERFACES 3
 static struct interface interfaces[] = {
-	{"/proc/acpi/ibm/light", 	{"off","on"},	"status: %9s" },
-	{"/proc/acpi/asus/mled", 	{"0","1"},	"%9s" },
+	{"/proc/acpi/ibm/light", 	                {"off","on"},	"status: %9s" },
+	{"/proc/acpi/asus/mled", 	                {"0","1"},	    "%9s" },
+	{"/sys/class/leds/asus:phone/brightness",   {"0","1"},	    "%9s" }
 };
 
 static struct interface *interface = NULL;
@@ -71,6 +72,8 @@ struct blinky {
 	int	time;
 };
 
+/* TODO: We should really allow an option to continue blinking indefinitely
+         until user opens message */
 static struct blinky seq[4] = {
 	{TOGGLE,	150},
 	{TOGGLE,	125},
@@ -93,12 +96,12 @@ blink(struct blinky *seq) {
         if (seq->state == OFF) new_state=interface->commands[OFF];
 	if (seq->state == TOGGLE) {
  	        // purple_debug_info("pidgin-blinklight","trying to toggle\n");
-                file = fopen(interface->procfile,"r");
-                      if (file == NULL) { perror ("Trying to open procfile for reading"); return FALSE;};
+                file = fopen(interface->sysfs,"r");
+                      if (file == NULL) { perror ("Trying to open sysfs for reading"); return FALSE;};
                 ret = fscanf(file,interface->scanline,old_state);
-                      if (ret == EOF)  { perror ("Trying to read from procfile"); return FALSE;};
+                      if (ret == EOF)  { perror ("Trying to read from sysfs"); return FALSE;};
                 ret = fclose(file);
-                      if (ret != 0) { perror ("Trying to close PROCFILE"); return FALSE;};
+                      if (ret != 0) { perror ("Trying to close sysfs"); return FALSE;};
  	        // purple_debug_info("pidgin-blinklight","done reading old state %s\n", old_state);
 
                 if (strcmp(old_state,interface->commands[ON])  == 0) new_state=interface->commands[OFF];
@@ -111,12 +114,12 @@ blink(struct blinky *seq) {
         }
  	// purple_debug_info("pidgin-blinklight","setting new state: %s\n", new_state);
 
-	file = fopen(interface->procfile,"w");
-                if (file == NULL) { perror ("Trying to open procfile for writing"); return FALSE;};
+	file = fopen(interface->sysfs,"w");
+                if (file == NULL) { perror ("Trying to open sysfs for writing"); return FALSE;};
         ret = fprintf(file,"%s",new_state);
-	        if (ret < 0)   { perror ("Trying to write to procfile"); return FALSE;};
+	        if (ret < 0)   { perror ("Trying to write to sysfs"); return FALSE;};
         ret = fclose(file);
-                if (ret != 0) { perror ("Trying to close procfile"); return FALSE;};
+                if (ret != 0) { perror ("Trying to close sysfs"); return FALSE;};
 
  	// purple_debug_info("pidgin-blinklight","done setting new state: %s\n", new_state);
 	
@@ -177,9 +180,9 @@ gt_load(PurplePlugin *plugin) {
 	
 	// figure out which interface to use
 	for (i=0; i< INTERFACES; i++) {
-		if (! access(interfaces[i].procfile, R_OK)) {
+		if (! access(interfaces[i].sysfs, R_OK)) {
 			// File exists and is readable (not checking writable because of possible race condition)
-			purple_debug_info("pidgin-blinklight","chose file %s.\n", interfaces[i].procfile);
+			purple_debug_info("pidgin-blinklight","chose file %s.\n", interfaces[i].sysfs);
 			interface = &interfaces[i];
 		}
 		
@@ -245,13 +248,14 @@ init_plugin(PurplePlugin *plugin) {
 	bind_textdomain_codeset(PACKAGE, "UTF-8");
 #endif
 
-	gt_info.name		= _("Pidgin-Thinklight");
+	gt_info.name		= _("Pidgin-Blinklight");
 	gt_info.summary		= _("Flickering Messages");
-	gt_info.description	= _(	"Pidgin-Thinklight:\n"
-					"Flashes the ThinkLight upon new messages\n"
-					"To use this, you need to have the ibm-acpi kernel module loaded.");
+	gt_info.description	= _(	"Pidgin-Blinklight:\n"
+					"Flashes the Blinklight upon new messages\n"
+					"To use this, you need to have the ibm-acpi or asus-laptop "
+					"kernel module loaded.");
 
 	// purple_debug_info("pidgin-blinklight","pidgin-blinklight has init'ed");
 }
 
-PURPLE_INIT_PLUGIN(Pidgin-Thinklight, init_plugin, gt_info)
+PURPLE_INIT_PLUGIN(Pidgin-Blinklight, init_plugin, gt_info)

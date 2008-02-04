@@ -50,7 +50,8 @@ clean:
 	
 	# Add here commands to clean up after the build process.
 	$(MAKE) distclean
-	-rm -f po/*gmo
+	-rm -f po/*gmo po/stamp-po
+	
 	
 	dh_clean 
 

@@ -7,10 +7,11 @@
 #include <error.h>
 
 
-#define PROCFILES 2
+#define PROCFILES 3
 static char *procfiles[PROCFILES] = {
 	"/proc/acpi/ibm/light",
 	"/proc/acpi/asus/mled",
+	"/sys/class/leds/asus:phone/brightness",
 };
 
 int main(int argc, char* argv[]) {

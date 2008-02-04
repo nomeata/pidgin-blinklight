@@ -1,3 +1,9 @@
+pidgin-blinklight (0.10-1) unstable; urgency=low
+
+  * New upstream version (supports ASUS leds in /sys)
+
+ -- Joachim Breitner <nomeata@debian.org>  Mon, 04 Feb 2008 17:32:54 +0100
+
 pidgin-blinklight (0.9-2) UNRELEASED; urgency=low
 
   * Add Vcs-Darcs and Vcs-Browser headers

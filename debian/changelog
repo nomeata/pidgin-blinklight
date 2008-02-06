@@ -1,3 +1,9 @@
+pidgin-blinklight (0.10-2) unstable; urgency=low
+
+  * FTBFS: Properly ignore distclean (Closes: #464295)
+
+ -- Joachim Breitner <nomeata@debian.org>  Wed, 06 Feb 2008 11:46:35 +0100
+
 pidgin-blinklight (0.10-1) unstable; urgency=low
 
   * New upstream version (supports ASUS leds in /sys)

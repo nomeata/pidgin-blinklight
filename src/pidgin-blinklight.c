@@ -225,7 +225,7 @@ static PurplePluginInfo gt_info = {
 	NULL,											/* description		*/
 
 	"Joachim Breitner <mail@joachim-breitner.de>",						/* author		*/
-	"http://www.joachim-breitner.der/blog/",										/* homepage		*/
+	"http://www.joachim-breitner.de/blog/",										/* homepage		*/
 
 	gt_load,										/* load			*/
 	gt_unload,										/* unload		*/

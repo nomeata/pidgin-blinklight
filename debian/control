@@ -10,7 +10,7 @@ Vcs-Browser: http://darcs.nomeata.de/cgi-bin/darcsweb.cgi?r=pidgin-blinklight;a=
 Package: pidgin-blinklight
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Blinks your ThinkPad's ThinkLight upon new messgaes
+Description: Blinks your ThinkPad's ThinkLight upon new messages
  This plugin for Pidgin will blink your laptops when you get
  new messages, so you notice them even if the conversation window ist not up
  front and you don't have or don't see the window list.

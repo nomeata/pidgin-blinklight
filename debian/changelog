@@ -1,3 +1,9 @@
+pidgin-blinklight (0.10-3) UNRELEASED; urgency=low
+
+  * Fix "Typo in package short description ("messgaes")" (Closes: #507516)
+
+ -- Joachim Breitner <nomeata@debian.org>  Tue, 02 Dec 2008 22:51:26 +0100
+
 pidgin-blinklight (0.10-2) unstable; urgency=low
 
   * FTBFS: Properly ignore distclean (Closes: #464295)

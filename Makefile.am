@@ -4,8 +4,7 @@ EXTRA_DIST = \
 	NEWS \
 	README \
 	VERSION \
-	po/AUTHORS \
-	po/ChangeLog
+	po/AUTHORS
 
 SUBDIRS = po src 
 

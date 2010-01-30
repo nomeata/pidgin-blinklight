@@ -48,7 +48,11 @@ int main(int argc, char **argv) {
 	}
 	printf("Using file %s.\n", file);
 
-	blinklight_startblink();
+	if (argc>1) {
+		blinklight_startblink(argv[1]);
+	} else {
+		blinklight_startblink(NULL);
+	}
 
 	while (timeout_interval > 0) {
 		usleep(timeout_interval*1000);

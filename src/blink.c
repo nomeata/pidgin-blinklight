@@ -162,7 +162,7 @@ blinklight_startblink(const gchar *seed) {
 			seq[i].time = 50 + hash % 200;
 			// So remove them
 			hash = (hash << 8); 
-			printf("Time %d: %d\n", i, seq[i].time);
+			// printf("Time %d: %d\n", i, seq[i].time);
 		}
 	}
 

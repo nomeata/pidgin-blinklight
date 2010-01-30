@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pidgin-blinklight 0.3-1\n"
 "Report-Msgid-Bugs-To: mail@joachim-breitner.de\n"
-"POT-Creation-Date: 2008-02-04 17:47+0100\n"
+"POT-Creation-Date: 2010-01-30 22:44+0100\n"
 "PO-Revision-Date: 2006-01-09 05:34+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -15,19 +15,19 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/pidgin-blinklight.c:160
+#: src/pidgin-blinklight.c:84
 msgid "Blink even when conversation has the _focus."
 msgstr "Blinka till och med när conversationen har _fukusen."
 
-#: src/pidgin-blinklight.c:251
+#: src/pidgin-blinklight.c:169
 msgid "Pidgin-Blinklight"
 msgstr "Pidgin-Blinklight"
 
-#: src/pidgin-blinklight.c:252
+#: src/pidgin-blinklight.c:170
 msgid "Flickering Messages"
 msgstr "Fladdrande meddelanden"
 
-#: src/pidgin-blinklight.c:253
+#: src/pidgin-blinklight.c:171
 #, fuzzy
 msgid ""
 "Pidgin-Blinklight:\n"

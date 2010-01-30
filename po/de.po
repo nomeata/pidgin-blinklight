@@ -6,26 +6,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pidgin-blinklight 0.10\n"
 "Report-Msgid-Bugs-To: mail@joachim-breitner.de\n"
-"POT-Creation-Date: 2008-02-04 17:47+0100\n"
+"POT-Creation-Date: 2010-01-30 22:44+0100\n"
 "PO-Revision-Date: 2007-03-13 14:35+0100\n"
 "Last-Translator: Joachim Breitner <mail@joachim-breitner.de>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/pidgin-blinklight.c:160
+#: src/pidgin-blinklight.c:84
 msgid "Blink even when conversation has the _focus."
 msgstr "Auch bei _fokussierten Unterhaltungen blinken."
 
-#: src/pidgin-blinklight.c:251
+#: src/pidgin-blinklight.c:169
 msgid "Pidgin-Blinklight"
 msgstr "Pidgin-Blinklight"
 
-#: src/pidgin-blinklight.c:252
+#: src/pidgin-blinklight.c:170
 msgid "Flickering Messages"
 msgstr "Blinkende Nachrichten"
 
-#: src/pidgin-blinklight.c:253
+#: src/pidgin-blinklight.c:171
 msgid ""
 "Pidgin-Blinklight:\n"
 "Flashes the Blinklight upon new messages\n"

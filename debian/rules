@@ -91,7 +91,7 @@ binary-arch: build install
 	dh_compress
 	dh_fixperms
 	chmod u+s $(CURDIR)/debian/pidgin-blinklight/usr/lib/pidgin-blinklight/blinklight-fixperm
-	dh_pidgin
+	dh_pidgin -ppidgin-blinklight
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol

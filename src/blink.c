@@ -118,6 +118,24 @@ blinklight_blink(blinkstate *bstate) {
 	return FALSE;
 }
 
+// From http://en.wikipedia.org/wiki/Jenkins_hash_function
+static guint32
+jenkins_one_at_a_time_hash(char *key)
+{
+    guint32 hash = 0;
+ 
+    while (*key){
+        hash += *(key++);
+        hash += (hash << 10);
+        hash ^= (hash >> 6);
+    }
+    hash += (hash << 3);
+    hash ^= (hash >> 11);
+    hash += (hash << 15);
+    return hash;
+}
+
+
 void
 blinklight_startblink(char *seed) {
 	int length = 4;
@@ -135,10 +153,15 @@ blinklight_startblink(char *seed) {
 		for (int i=0; i<length; i++) {
 			seq[i].state = TOGGLE;
 		}
+
+		guint32 hash = jenkins_one_at_a_time_hash(seed);
 		// Set timeing based on string
-		// 100 + [0,1]*100 ms
+		// Range: 500 + [0,1]*200 ms
 		for (int i=0; i<length-1; i++) {
-			seq[i].time = 100 + ((int)seed[i]*103) % 100;
+			// Uses last 8 bits
+			seq[i].time = 50 + hash % 200;
+			// So remove them
+			hash = (hash << 8); 
 			printf("Time %d: %d\n", i, seq[i].time);
 		}
 	}

@@ -20,6 +20,7 @@
 
 #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #include <blink.h>
@@ -44,14 +45,19 @@ static struct interface interfaces[] = {
 
 static struct interface *interface = NULL;
 
-struct blinky {
+typedef struct {
 	int	state;
 	int	time;
-};
+} blinky;
+
+typedef struct {
+	blinky *seq;
+	int pos;
+} blinkstate;
 
 /* TODO: We should really allow an option to continue blinking indefinitely
          until user opens message */
-struct blinky default_seq[] = {
+blinky default_seq[] = {
 	{TOGGLE,	150},
 	{TOGGLE,	125},
 	{TOGGLE,	150},
@@ -59,11 +65,13 @@ struct blinky default_seq[] = {
 };
 
 static guint
-blinklight_blink(struct blinky *seq) {
+blinklight_blink(blinkstate *bstate) {
 	FILE *file;
 	char *new_state = NULL;
 	char old_state[10] = "";
 	int ret;
+
+	blinky *seq = &bstate->seq[bstate->pos];
 
 	if (interface == NULL) return FALSE;
 
@@ -100,15 +108,44 @@ blinklight_blink(struct blinky *seq) {
 
  	// purple_debug_info("pidgin-blinklight","done setting new state: %s\n", new_state);
 	
-	if (seq->time) 
-		blinklight_timeout_add(seq->time,(GSourceFunc)blinklight_blink,seq+1);
-
+	if (seq->time) { 
+		bstate->pos++;
+		blinklight_timeout_add(seq->time,(GSourceFunc)blinklight_blink,bstate);
+	} else {
+		free(bstate->seq);
+		free(bstate);
+	}
 	return FALSE;
 }
-	
+
 void
-blinklight_startblink() {
-	blinklight_blink(default_seq);
+blinklight_startblink(char *seed) {
+	int length = 4;
+	blinkstate *bstate = malloc(sizeof(blinkstate));
+	blinky *seq ;
+
+ 	if (seed == NULL) {
+		seq = malloc(sizeof(default_seq));
+		memcpy(seq, default_seq, sizeof(default_seq));
+
+	} else {
+		seq = calloc(sizeof(blinky),length);
+		
+		// Initialize to four toggle commands
+		for (int i=0; i<length; i++) {
+			seq[i].state = TOGGLE;
+		}
+		// Set timeing based on string
+		// 100 + [0,1]*100 ms
+		for (int i=0; i<length-1; i++) {
+			seq[i].time = 100 + ((int)seed[i]*103) % 100;
+			printf("Time %d: %d\n", i, seq[i].time);
+		}
+	}
+
+	bstate->seq = seq;
+	bstate->pos = 0;
+	blinklight_blink(bstate);
 }
 
 char *

@@ -23,10 +23,10 @@
 #include <glib.h>
 
 void
-blinklight_startblink();
+blinklight_startblink(char *);
 
 guint
-blinklight_timeout_add (guint interval, GSourceFunc function, gpointer data);
+blinklight_timeout_add (guint, GSourceFunc, gpointer);
 
 char *
 blinklight_init();

@@ -3,7 +3,7 @@ Section: net
 Priority: optional
 Maintainer: Joachim Breitner <nomeata@debian.org>
 Build-Depends: debhelper (>= 7), pidgin-dev, pkg-config
-Standards-Version: 3.7.3
+Standards-Version: 3.8.3
 Vcs-Darcs: http://darcs.nomeata.de/pidgin-blinklight
 Vcs-Browser: http://darcs.nomeata.de/cgi-bin/darcsweb.cgi?r=pidgin-blinklight;a=summary
 

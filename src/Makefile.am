@@ -23,5 +23,10 @@ endif
 
 libexec_PROGRAMS = blinklight-fixperm
 
+demoblink_SOURCES = demoblink.c blink.c
+demoblink_CPPFLAGS = $(PURPLE_CFLAGS)
+
+noinst_PROGRAMS = demoblink
+
 install-exec-hook:
 	chmod +s $(DESTDIR)$(libexecdir)/blinklight-fixperm$(EXEEXT)

@@ -51,14 +51,12 @@ clean:
 	# Add here commands to clean up after the build process.
 	[ ! -f Makefile ] || $(MAKE) distclean
 	-rm -f po/*gmo po/stamp-po
-	
-	
 	dh_clean 
 
 install: build
 	dh_testdir
 	dh_testroot
-	dh_clean -k 
+	dh_prep 
 	dh_installdirs
 	
 	$(MAKE) install DESTDIR=$(CURDIR)/debian/pidgin-blinklight

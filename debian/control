@@ -2,7 +2,7 @@ Source: pidgin-blinklight
 Section: net
 Priority: optional
 Maintainer: Joachim Breitner <nomeata@debian.org>
-Build-Depends: debhelper (>= 4.0.0), pidgin-dev, pkg-config
+Build-Depends: debhelper (>= 7), pidgin-dev, pkg-config
 Standards-Version: 3.7.3
 Vcs-Darcs: http://darcs.nomeata.de/pidgin-blinklight
 Vcs-Browser: http://darcs.nomeata.de/cgi-bin/darcsweb.cgi?r=pidgin-blinklight;a=summary
@@ -10,6 +10,7 @@ Vcs-Browser: http://darcs.nomeata.de/cgi-bin/darcsweb.cgi?r=pidgin-blinklight;a=
 Package: pidgin-blinklight
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: ${misc:Conflicts}
 Description: Blinks your ThinkPad's ThinkLight upon new messages
  This plugin for Pidgin will blink your laptops when you get
  new messages, so you notice them even if the conversation window ist not up
@@ -23,7 +24,7 @@ Description: Blinks your ThinkPad's ThinkLight upon new messages
 
 Package: gaim-thinklight
 Architecture: all
-Depends: pidgin-blinklight
+Depends: pidgin-blinklight, ${misc:Depends}, ${misc:Depends}
 Description: Transitional package to pidgin-thinklight
  This is a transitional dummy package, to make sure that users have a
  seamless upgrade from the gaim-thinklight to the new pidgin-blinklight

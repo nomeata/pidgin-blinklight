@@ -60,6 +60,7 @@ install: build
 	dh_installdirs
 	
 	$(MAKE) install DESTDIR=$(CURDIR)/debian/pidgin-blinklight
+	rm -f $(CURDIR)/debian/pidgin-blinklight/usr/lib/purple-2/pidgin-blinklight.la
 
 	
 # Build architecture-independent files here.

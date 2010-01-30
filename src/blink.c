@@ -120,7 +120,7 @@ blinklight_blink(blinkstate *bstate) {
 
 // From http://en.wikipedia.org/wiki/Jenkins_hash_function
 static guint32
-jenkins_one_at_a_time_hash(char *key)
+jenkins_one_at_a_time_hash(const gchar *key)
 {
     guint32 hash = 0;
  
@@ -137,7 +137,7 @@ jenkins_one_at_a_time_hash(char *key)
 
 
 void
-blinklight_startblink(char *seed) {
+blinklight_startblink(const gchar *seed) {
 	int length = 4;
 	blinkstate *bstate = malloc(sizeof(blinkstate));
 	blinky *seq ;

@@ -62,12 +62,12 @@ gt_blink(PurpleAccount *account, const gchar *sender,
 	if (purple_prefs_get_bool("/plugins/core/pidgin-blinklight/focus"))
 	{
 		// Blink in any case
-		blinklight_startblink(NULL);
+		blinklight_startblink(sender);
 	} else {
 		// Only blink when not having focus
     		PurpleConversation *conv = purple_find_conversation_with_account(PURPLE_CONV_TYPE_ANY, sender, account);
 	    	if (! purple_conversation_has_focus(conv)) 
-		        blinklight_startblink(NULL);
+		        blinklight_startblink(sender);
 	}
 }
 

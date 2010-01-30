@@ -1,3 +1,10 @@
+Version 0.11
+
+Made blinking pattern dependent on the contact’s user name, for subliminal
+recognition of frequent chat partners.
+
+-- Joachim Breitner <nomeata@debian.org> Sat, 30 Jan 2010 22:41:44 +0100
+
 Version 0.10
 
 Also support the /sys/class/leds/asus:phone/brightness file, patch by 

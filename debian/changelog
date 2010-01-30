@@ -4,6 +4,7 @@ pidgin-blinklight (0.11-1) UNRELEASED; urgency=low
     + Blink pattern depends on the sending contacts, so that frequent contacts
        can be hopefully recognized by the blinking after a while.
   * Fix "Typo in package short description ("messgaes")" (Closes: #507516)
+  * Switch to source format 3.0 (quilt) 
 
  -- Joachim Breitner <nomeata@debian.org>  Tue, 02 Dec 2008 22:51:26 +0100
 

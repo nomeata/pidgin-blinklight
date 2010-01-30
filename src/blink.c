@@ -51,7 +51,7 @@ struct blinky {
 
 /* TODO: We should really allow an option to continue blinking indefinitely
          until user opens message */
-struct blinky seq[] = {
+struct blinky default_seq[] = {
 	{TOGGLE,	150},
 	{TOGGLE,	125},
 	{TOGGLE,	150},
@@ -108,7 +108,7 @@ blinklight_blink(struct blinky *seq) {
 	
 void
 blinklight_startblink() {
-	blinklight_blink(seq);
+	blinklight_blink(default_seq);
 }
 
 char *

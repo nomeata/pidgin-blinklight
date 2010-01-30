@@ -9,7 +9,7 @@ if PLUGINS
 gt_LTLIBRARIES = pidgin-blinklight.la
 
 pidgin_blinklight_la_SOURCES = \
-	pidgin-blinklight.c
+	pidgin-blinklight.c blink.c
 
 pidgin_blinklight_la_CPPFLAGS = \
 	-DVERSION=\"$(VERSION)\" \

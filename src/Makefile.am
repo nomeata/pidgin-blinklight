@@ -9,7 +9,7 @@ if PLUGINS
 gt_LTLIBRARIES = pidgin-blinklight.la
 
 pidgin_blinklight_la_SOURCES = \
-	pidgin-blinklight.c blink.c
+	pidgin-blinklight.c blink.c blink.h
 
 pidgin_blinklight_la_CPPFLAGS = \
 	-DVERSION=\"$(VERSION)\" \
@@ -23,7 +23,8 @@ endif
 
 libexec_PROGRAMS = blinklight-fixperm
 
-demoblink_SOURCES = demoblink.c blink.c
+demoblink_SOURCES = \
+	demoblink.c blink.c blink.h
 demoblink_CPPFLAGS = $(PURPLE_CFLAGS)
 
 noinst_PROGRAMS = demoblink

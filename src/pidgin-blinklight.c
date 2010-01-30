@@ -48,88 +48,12 @@
 #include <eventloop.h>
 #include <string.h>
 
-#define OFF    0
-#define ON     1
-#define TOGGLE 2
+#include "blink.h"
 
-struct interface {
-	char *sysfs;
-	char *commands[2];
-	char *scanline;
-};
-
-#define INTERFACES 3
-static struct interface interfaces[] = {
-	{"/proc/acpi/ibm/light", 	                {"off","on"},	"status: %9s" },
-	{"/proc/acpi/asus/mled", 	                {"0","1"},	    "%9s" },
-	{"/sys/class/leds/asus:phone/brightness",   {"0","1"},	    "%9s" }
-};
-
-static struct interface *interface = NULL;
-
-struct blinky {
-	int	state;
-	int	time;
-};
-
-/* TODO: We should really allow an option to continue blinking indefinitely
-         until user opens message */
-static struct blinky seq[4] = {
-	{TOGGLE,	150},
-	{TOGGLE,	125},
-	{TOGGLE,	150},
-	{TOGGLE,	0}
-};
-
-static guint
-blink(struct blinky *seq) {
-	FILE *file;
-	char *new_state = NULL;
-	char old_state[10] = "";
-	int ret;
-
-	if (interface == NULL) return FALSE;
-
-	// purple_debug_info("pidgin-blinklight","blink called with parameter: %i\n", seq->state);
-	
-	if (seq->state == ON)  new_state=interface->commands[ON];
-        if (seq->state == OFF) new_state=interface->commands[OFF];
-	if (seq->state == TOGGLE) {
- 	        // purple_debug_info("pidgin-blinklight","trying to toggle\n");
-                file = fopen(interface->sysfs,"r");
-                      if (file == NULL) { perror ("Trying to open sysfs for reading"); return FALSE;};
-                ret = fscanf(file,interface->scanline,old_state);
-                      if (ret == EOF)  { perror ("Trying to read from sysfs"); return FALSE;};
-                ret = fclose(file);
-                      if (ret != 0) { perror ("Trying to close sysfs"); return FALSE;};
- 	        // purple_debug_info("pidgin-blinklight","done reading old state %s\n", old_state);
-
-                if (strcmp(old_state,interface->commands[ON])  == 0) new_state=interface->commands[OFF];
-                if (strcmp(old_state,interface->commands[OFF]) == 0) new_state=interface->commands[ON];
-        }
-	
-	if (new_state == NULL) {
-                // purple_debug_info("pidgin-blinklight","No new state defined\n");
-		return FALSE;
-        }
- 	// purple_debug_info("pidgin-blinklight","setting new state: %s\n", new_state);
-
-	file = fopen(interface->sysfs,"w");
-                if (file == NULL) { perror ("Trying to open sysfs for writing"); return FALSE;};
-        ret = fprintf(file,"%s",new_state);
-	        if (ret < 0)   { perror ("Trying to write to sysfs"); return FALSE;};
-        ret = fclose(file);
-                if (ret != 0) { perror ("Trying to close sysfs"); return FALSE;};
-
- 	// purple_debug_info("pidgin-blinklight","done setting new state: %s\n", new_state);
-	
-	if (seq->time) 
-		purple_timeout_add(seq->time,(GSourceFunc)blink,seq+1);
-
-	return FALSE;
+guint
+blinklight_timeout_add (guint interval, GSourceFunc function, gpointer data) {
+	return purple_timeout_add(interval, function, data);
 }
-
-	
 
 static void
 gt_blink(PurpleAccount *account, const gchar *sender,
@@ -138,12 +62,12 @@ gt_blink(PurpleAccount *account, const gchar *sender,
 	if (purple_prefs_get_bool("/plugins/core/pidgin-blinklight/focus"))
 	{
 		// Blink in any case
-		blink(seq);
+		blinklight_startblink();
 	} else {
 		// Only blink when not having focus
     		PurpleConversation *conv = purple_find_conversation_with_account(PURPLE_CONV_TYPE_ANY, sender, account);
 	    	if (! purple_conversation_has_focus(conv)) 
-		        blink(seq);
+		        blinklight_startblink();
 	}
 }
 
@@ -172,24 +96,17 @@ static PurplePluginUiInfo prefs_info =
 
 static gboolean
 gt_load(PurplePlugin *plugin) {
-	int i;
 
 	// Make /proc file writable
 	if (!fork())
 		execl("/usr/lib/pidgin-blinklight/blinklight-fixperm","blinklight-fixperm",NULL);
 	
-	// figure out which interface to use
-	for (i=0; i< INTERFACES; i++) {
-		if (! access(interfaces[i].sysfs, R_OK)) {
-			// File exists and is readable (not checking writable because of possible race condition)
-			purple_debug_info("pidgin-blinklight","chose file %s.\n", interfaces[i].sysfs);
-			interface = &interfaces[i];
-		}
-		
-	}
-	if (interface == NULL) 
+
+	char *chosen_file = blinklight_init();
+	if (chosen_file == NULL) {
 		purple_debug_info("pidgin-blinklight","no suitable file found, deactivating plugin.");
-	else
+	} else {
+		purple_debug_info("pidgin-blinklight","chose file %s.\n", chosen_file);
 		purple_signal_connect(
 			purple_conversations_get_handle(),
 			"received-im-msg",
@@ -197,6 +114,7 @@ gt_load(PurplePlugin *plugin) {
 			PURPLE_CALLBACK(gt_blink),
 			NULL
 		);
+	}
 
 	// purple_debug_info("pidgin-blinklight","pidgin-blinklight has loaded\n");
 	return TRUE;

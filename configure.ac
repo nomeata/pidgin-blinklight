@@ -3,7 +3,7 @@
 # gaim-encryption configure script, thanks guys ;)
 #
 
-AC_INIT([pidgin-blinklight], [0.11], [mail@joachim-breitner.de])
+AC_INIT([pidgin-blinklight], [0.11.1], [mail@joachim-breitner.de])
 AC_CANONICAL_SYSTEM
 AC_GNU_SOURCE
 AM_CONFIG_HEADER(config.h)

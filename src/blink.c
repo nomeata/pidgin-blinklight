@@ -161,7 +161,7 @@ blinklight_startblink(const gchar *seed) {
 			// Uses last 8 bits
 			seq[i].time = 50 + hash % 200;
 			// So remove them
-			hash = (hash << 8); 
+			hash = (hash >> 8); 
 			// printf("Time %d: %d\n", i, seq[i].time);
 		}
 	}

@@ -1,3 +1,9 @@
+Version 0.11.1
+
+Fix a small bug when calculating the random blink times.
+
+-- Joachim Breitner <nomeata@debian.org> Mon, 01 Feb 2010 12:17:26 +0100
+
 Version 0.11
 
 Made blinking pattern dependent on the contact’s user name, for subliminal

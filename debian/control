@@ -13,7 +13,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Conflicts: ${misc:Conflicts}
 Description: Blinks your ThinkPad's ThinkLight upon new messages
  This plugin for Pidgin will blink your laptops when you get
- new messages, so you notice them even if the conversation window ist not up
+ new messages, so you notice them even if the conversation window is not up
  front and you don't have or don't see the window list.
  .
  To use this with an Thinkpad's ThinkLight, you need to have the ibm-acpi

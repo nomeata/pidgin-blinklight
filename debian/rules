@@ -30,6 +30,7 @@ endif
 
 config.status: configure
 	dh_testdir
+	dh_autotools-dev_updateconfig
 	# Add here commands to configure the package.
 	CFLAGS="$(CFLAGS)" ./configure CC="$(CC)" CXX="$(CXX)" --host=$(DEB_HOST_GNU_TYPE) --build=$(DEB_BUILD_GNU_TYPE) --prefix=/usr --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info --libexecdir=\$${prefix}/lib/pidgin-blinklight 
 
@@ -51,6 +52,7 @@ clean:
 	# Add here commands to clean up after the build process.
 	[ ! -f Makefile ] || $(MAKE) distclean
 	-rm -f po/*gmo po/stamp-po
+	dh_autotools-dev_restoreconfig
 	dh_clean 
 
 install: build

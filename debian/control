@@ -21,11 +21,3 @@ Description: Blinks your ThinkPad's ThinkLight upon new messages
  .
  To use this with an ASUS laptop, you need to have the asus_acpi kernel
  module loaded.
-
-Package: gaim-thinklight
-Architecture: all
-Depends: pidgin-blinklight, ${misc:Depends}, ${misc:Depends}
-Description: Transitional package to pidgin-thinklight
- This is a transitional dummy package, to make sure that users have a
- seamless upgrade from the gaim-thinklight to the new pidgin-blinklight
- package. It can safely be removed afterwards.

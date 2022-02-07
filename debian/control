@@ -1,0 +1,23 @@
+Source: pidgin-blinklight
+Section: net
+Priority: optional
+Maintainer: Joachim Breitner <nomeata@debian.org>
+Build-Depends: debhelper (>= 7), autotools-dev, pidgin-dev, pkg-config
+Standards-Version: 3.8.3
+Vcs-Darcs: http://darcs.nomeata.de/pidgin-blinklight.debian
+Vcs-Browser: http://darcs.nomeata.de/cgi-bin/darcsweb.cgi?r=pidgin-blinklight.debian;a=summary
+
+Package: pidgin-blinklight
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: ${misc:Conflicts}
+Description: Blinks your ThinkPad's ThinkLight upon new messages
+ This plugin for Pidgin will blink your laptops when you get
+ new messages, so you notice them even if the conversation window is not up
+ front and you don't have or don't see the window list.
+ .
+ To use this with an Thinkpad's ThinkLight, you need to have the ibm-acpi
+ kernel module loaded.
+ .
+ To use this with an ASUS laptop, you need to have the asus_acpi kernel
+ module loaded.

@@ -1,0 +1,23 @@
+This package was debianized by Joachim Breitner <nomeata@debian.org> on
+Fri, 15 Jul 2005 19:05:59 +0300
+
+It was downloaded from http://people.debian.org/~nomeata/pidgin-blinklight/
+
+Copyright:
+
+ © 2006-2009 Joachim Breitner <mail@joachim-breitner.de>
+
+License:
+
+  This program is free software; you can redistribute it and/or
+  modify it under the terms of the GNU General Public License
+  as published by the Free Software Foundation; either version 2
+  of the License, or (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+The GPL is available in /usr/share/common-licenses/GPL-2 on Debian
+systems.
